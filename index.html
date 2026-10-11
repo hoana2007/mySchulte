@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Luyện tập trung với Schulte</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=JetBrains+Mono:wght@700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Header Top Actions: Theme & Language Switchers -->
+        <div class="top-bar">
+            <button id="btnLang" class="top-btn">🌐 EN</button>
+            <button id="btnTheme" class="top-btn">🌙 Dark</button>
+        </div>
+
+        <!-- Tiêu đề Nghệ thuật -->
+        <div class="app-header">
+            <div class="subtitle" data-i18n="subTitle">Focus & Brain Training</div>
+            <h1>SCHULTE MASTER</h1>
+        </div>
+
+        <!-- Panel Điều Khiển -->
+        <div class="controls">
+            <div class="control-group full-width">
+                <label for="playerName" data-i18n="playerName">Tên người chơi</label>
+                <input type="text" id="playerName" value="Player 1">
+            </div>
+
+            <div class="control-group">
+                <label for="boardMode" data-i18n="boardMode">Chế độ</label>
+                <select id="boardMode">
+                    <option value="grid" data-i18n="modeGrid">Lưới Ô Số</option>
+                    <option value="wheel" data-i18n="modeWheel">Hình Tròn / Bánh Xe</option>
+                </select>
+            </div>
+
+            <div class="control-group" id="wheelStyleGroup" style="display: none;">
+                <label for="wheelStyle" data-i18n="wheelStyle">Kiểu Hình Tròn</label>
+                <select id="wheelStyle">
+                    <option value="concentric" data-i18n="styleConcentric">Vòng Đồng Tâm (30 ô)</option>
+                    <option value="radial" data-i18n="styleRadial">Mặt Đồng Hồ (24 ô)</option>
+                    <option value="single_ring" data-i18n="styleSingle">Vòng Đơn (16 ô)</option>
+                </select>
+            </div>
+
+            <div class="control-group" id="gridSizeGroup">
+                <label for="gridSize" data-i18n="gridSize">Kích thước</label>
+                <select id="gridSize">
+                    <option value="3">3 x 3</option>
+                    <option value="4">4 x 4</option>
+                    <option value="5" selected>5 x 5</option>
+                    <option value="6">6 x 6</option>
+                    <option value="7">7 x 7</option>
+                    <option value="8">8 x 8</option>
+                    <option value="9">9 x 9</option>
+                </select>
+            </div>
+
+            <div class="control-group" id="shapeTypeGroup">
+                <label for="shapeType" data-i18n="shapeType">Nút Lưới</label>
+                <select id="shapeType">
+                    <option value="square" data-i18n="shapeSquare">Vuông</option>
+                    <option value="circle" data-i18n="shapeCircle">Tròn</option>
+                </select>
+            </div>
+
+            <div class="control-group full-width" style="margin-top: 4px;">
+                <button id="btnNewGame" data-i18n="btnNewGame">Trò Chơi Mới</button>
+            </div>
+        </div>
+
+        <!-- Thanh Trạng Thái -->
+        <div class="info-bar">
+            <div class="target-box"><span data-i18n="target">MỤC TIÊU</span> <span id="nextNum">1</span></div>
+            <div class="timer-badge" id="timer">00:00.000</div>
+        </div>
+
+        <!-- Bảng Chơi -->
+        <div class="board-wrapper">
+            <div id="gridBoard" class="schulte-grid" style="display: none;"></div>
+            <div id="wheelBoard" class="svg-container" style="display: none;">
+                <svg id="schulteSvg" viewBox="0 0 100 100"></svg>
+            </div>
+        </div>
+
+        <!-- Bảng Kỷ Lục -->
+        <div class="leaderboard">
+            <h3 data-i18n="leaderboardTitle">🏆 Top Thành Tích</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th data-i18n="thName">Tên</th>
+                        <th data-i18n="thMode">Chế độ</th>
+                        <th data-i18n="thTime">Thời gian</th>
+                    </tr>
+                </thead>
+                <tbody id="scoreTable"></tbody>
+            </table>
+        </div>
+
+        <!-- Footer Bản quyền -->
+        <footer class="app-footer">
+            &copy; 2026 - hoana2007. Powered by GeminiAI.
+        </footer>
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+</body>
+
+</html>
